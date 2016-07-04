@@ -8,6 +8,8 @@ describe('debugMemoize', () => {
   // monkey patch console.log
   let lastPrinted = null
   const oriLog = console.log
+  console.group = () => {}
+  console.groupEnd = () => {}
   function patchLog() {
     console.log = function(...args) {
       oriLog(...args)

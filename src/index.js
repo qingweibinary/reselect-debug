@@ -12,12 +12,14 @@ export function debugMemoize(func, equalityCheck = (a, b) => a === b) {
       return lastResult
     }
     if (lastArgs !== null) {
+      console.group()
       console.log(`Debug: ${func.name} recompute`);
       const diffVal = args
         .map((value, index) => [!equalityCheck(value, lastArgs[index]), index])
         .find(v => v[0])
       console.log(`Old: ${lastArgs[diffVal[1]]}`)
       console.log(`New: ${args[diffVal[1]]}`)
+      console.groupEnd()
     }
 
     lastResult = func(...args)
