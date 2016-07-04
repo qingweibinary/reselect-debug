@@ -2,7 +2,9 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: './dist',
-    filename: 'reselect-debug.js'
+    filename: 'index.js',
+    library: 'reselectDebug',
+    libraryTarget: 'umd',
   },
   module: {
     loaders: [
